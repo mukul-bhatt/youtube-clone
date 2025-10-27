@@ -3,13 +3,13 @@ import Header from "./Header";
 import VideoContainer from "./VideoContainer";
 
 
-const Body = ({toggleSidebar, setToggleSidebar}) => {
+const Body = () => {
     
     return (
         <>
             <div className="flex">
 
-            <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar}/>
+            <Sidebar />
             <VideoContainer  />
         </div>
         </>

@@ -1,11 +1,17 @@
-const Header = ({toggleSidebar, setToggleSidebar}) => {
+import { SidebarContext } from "../utils/toggleSidebarContext";
+import { useContext } from "react";
 
-  
+const Header = () => {
 
+  const {toggle, setToggle} = useContext(SidebarContext);
+
+  const handleClick = () => {
+    setToggle(!toggle)
+  }
 
   return (
     <div className="navbar bg-base-100 shadow-sm flex justify-between">
-      <div className="navbar-start flex" onClick={()=>setToggleSidebar(!toggleSidebar)}>
+      <div className="navbar-start flex" onClick={handleClick}>
         <button className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"

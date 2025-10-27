@@ -1,15 +1,18 @@
 import Header from "./Header"
 import Body from "./Body"
-import {useState} from "react";
+import {useState} from "react"
+import { SidebarContext } from "../utils/toggleSidebarContext"
+
 
 const App = () => {
-    const [toggleSidebar, setToggleSidebar] = useState(true);
+
+    const [toggle, setToggle] = useState(true);
 
     return (
-        <div>
-            <Header toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar}/>
-            <Body toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar}/>
-        </div>
+        <SidebarContext value={{toggle, setToggle}}>
+            <Header />
+            <Body />
+        </SidebarContext>
     )
 }
 
