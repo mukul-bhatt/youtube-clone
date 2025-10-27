@@ -1,16 +1,21 @@
 import Sidebar from "./Sidebar";
-import Header from "./Header";
 import VideoContainer from "./VideoContainer";
-
+import ButtonList from "./ButtonList";
 
 const Body = ({toggleSidebar, setToggleSidebar}) => {
     
     return (
         <>
             <div className="flex">
+            
 
             <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar}/>
-            <VideoContainer  />
+            <div>
+                <ButtonList />
+                <VideoContainer  />
+
+            </div>
+            
         </div>
         </>
     )
