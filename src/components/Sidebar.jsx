@@ -1,4 +1,9 @@
-const Sidebar = ({toggleSidebar}) => {
+import { useSelector } from "react-redux";
+
+const Sidebar = () => {
+
+    const toggleSidebar = useSelector(store => store.sidebar.value);
+    
     return toggleSidebar && (
 <>
 

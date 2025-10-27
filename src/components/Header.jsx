@@ -1,11 +1,14 @@
-const Header = ({toggleSidebar, setToggleSidebar}) => {
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../utils/sidebarSlice";
 
-  
+const Header = () => {
+
+  const dispatch = useDispatch();
 
 
   return (
     <div className="navbar bg-base-100 shadow-sm flex justify-between">
-      <div className="navbar-start flex" onClick={()=>setToggleSidebar(!toggleSidebar)}>
+      <div className="navbar-start flex" onClick={()=>dispatch(toggleSidebar())}>
         <button className="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
