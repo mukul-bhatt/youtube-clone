@@ -2,6 +2,7 @@ import Sidebar from "./Sidebar";
 import VideoContainer from "./VideoContainer";
 import ButtonList from "./ButtonList";
 
+
 const Body = ({toggleSidebar, setToggleSidebar}) => {
     
     return (
@@ -15,6 +16,8 @@ const Body = ({toggleSidebar, setToggleSidebar}) => {
                 <VideoContainer  />
 
             </div>
+
+            
             
         </div>
         </>

@@ -1,4 +1,4 @@
-const data = {
+export const data = {
   "kind": "youtube#videoListResponse",
   "etag": "JUJDBfyMKIrbkjPoc8AwU5DbQFM",
   "items": [
@@ -312,5 +312,107 @@ const data = {
   }
 }
 
+export default data;
 
-  export default data;
+export const dataForWatchPage = {
+  "kind": "youtube#videoListResponse",
+  "etag": "venFDJ2XoKF_VbLNAPtuui4MDuI",
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "_81K0m5G8HlVEhBUqdrk9Ky6tfM",
+      "id": "byas2EoAOYY",
+      "snippet": {
+        "publishedAt": "2025-10-18T05:37:56Z",
+        "channelId": "UCk4j7JzNIFI2oX7WWZwfbTQ",
+        "title": "CHALISA",
+        "description": "Chalisa is the hymn of strength, courage and devotion. It is both an artistic expression and a personal offering. It reintroduces Hanuman, who is already established as a superhero to the audience, with the power of handcrafted clay animation by blending spirituality, entertainment and culturally rootedness, nurturing their emotional and spiritual growth.\nHanuman is regarded as the greatest devotee of Rama, the incarnation of Lord Vishnu, who represents consciousness and the embodiment of righteousness. Thus, Hanuman himself becomes the biggest bearer of righteousness.\nHis resilient personality pushes one to overcome struggles and exemplify perseverance. His optimistic outlook is inspiring and can help one achieve success across diverse fields and disciplines. \nMay Hanuman’s tatva awaken our inner Rama- the light of joy and hope.\n\nहनुमान चालीसा एक आध्यात्मिक पृष्ठभूमि रखने के साथ-साथ श्री हनुमान जी के द्वारा की गई लीलाओं का आंशिक वर्णन है। हनुमान चालीसा में उल्लिखित 40 चौपाइयां हनुमान जी की प्रभुता की एक छोटी सी झाँकी है।\n\nक्ले एनिमेशन के माध्यम से हमने पुरातन भारतीय मंदिर में उत्कीर्ण कलाकृति से प्रेरणा लेकर इस चलचित्र का निर्माण किया है। पिछले लगभग 500 सालों से हनुमान चालीसा लोगों के ह्रदय से गायी और गुनगुनाती जा रही है, यह भी उसी माला का एक छोटा सा मोती है। आशा है आप सभी जिज्ञासुओं को यह पसंद आएगा साथ-साथ बच्चों के बाल मन को भी भाएगा |\n\n#animation #clay #stopmotionanimation #india #music #artist #bhakti #kidsmusic  #hanuman #hanumanchalisa #ram #bhaktisong #spirituality #spiritual #culture #hanumanji #hanumanbhajan #iitbombay #design #story #kahani #love #prayer",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/byas2EoAOYY/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/byas2EoAOYY/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/byas2EoAOYY/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/byas2EoAOYY/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/byas2EoAOYY/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Swati Agarwal",
+        "tags": [
+          "hanuman chalisa animation",
+          "hanuman chalisa stop motion",
+          "hanuman chalisa short film",
+          "indian stop motion film",
+          "stop motion",
+          "spiritual art film",
+          "Diwali",
+          "greetings Diwali",
+          "iit bombay",
+          "design",
+          "Clay animation",
+          "shri ram",
+          "spiritual short film",
+          "clay animation india",
+          "handcrafted animation",
+          "IDC School of Design",
+          "Bhakti",
+          "bhakti song",
+          "hanuman chalisa",
+          "animation",
+          "diwali greetings",
+          "swati agarwal",
+          "IDC School of design",
+          "Indian animation",
+          "Chalisa",
+          "short animation film",
+          "hanuman animation",
+          "#design"
+        ],
+        "categoryId": "1",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "hi",
+        "localized": {
+          "title": "CHALISA",
+          "description": "Chalisa is the hymn of strength, courage and devotion. It is both an artistic expression and a personal offering. It reintroduces Hanuman, who is already established as a superhero to the audience, with the power of handcrafted clay animation by blending spirituality, entertainment and culturally rootedness, nurturing their emotional and spiritual growth.\nHanuman is regarded as the greatest devotee of Rama, the incarnation of Lord Vishnu, who represents consciousness and the embodiment of righteousness. Thus, Hanuman himself becomes the biggest bearer of righteousness.\nHis resilient personality pushes one to overcome struggles and exemplify perseverance. His optimistic outlook is inspiring and can help one achieve success across diverse fields and disciplines. \nMay Hanuman’s tatva awaken our inner Rama- the light of joy and hope.\n\nहनुमान चालीसा एक आध्यात्मिक पृष्ठभूमि रखने के साथ-साथ श्री हनुमान जी के द्वारा की गई लीलाओं का आंशिक वर्णन है। हनुमान चालीसा में उल्लिखित 40 चौपाइयां हनुमान जी की प्रभुता की एक छोटी सी झाँकी है।\n\nक्ले एनिमेशन के माध्यम से हमने पुरातन भारतीय मंदिर में उत्कीर्ण कलाकृति से प्रेरणा लेकर इस चलचित्र का निर्माण किया है। पिछले लगभग 500 सालों से हनुमान चालीसा लोगों के ह्रदय से गायी और गुनगुनाती जा रही है, यह भी उसी माला का एक छोटा सा मोती है। आशा है आप सभी जिज्ञासुओं को यह पसंद आएगा साथ-साथ बच्चों के बाल मन को भी भाएगा |\n\n#animation #clay #stopmotionanimation #india #music #artist #bhakti #kidsmusic  #hanuman #hanumanchalisa #ram #bhaktisong #spirituality #spiritual #culture #hanumanji #hanumanbhajan #iitbombay #design #story #kahani #love #prayer"
+        },
+        "defaultAudioLanguage": "en"
+      },
+      "contentDetails": {
+        "duration": "PT5M49S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular"
+      },
+      "statistics": {
+        "viewCount": "59333",
+        "likeCount": "8705",
+        "favoriteCount": "0",
+        "commentCount": "931"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  }
+}
