@@ -1,5 +1,5 @@
 import VideoCard from "./VideoCard";
-import useFetchApi from "../hooks/usefetchAPI";// Import our new hook
+import useFetchApi from "../hooks/usefetchApi";// Import our new hook
 import { YOUTUBE_VIDEOS_API } from "../utils/constants";
 import { Link } from "react-router"; // Make sure this is from "react-router-dom"
 
