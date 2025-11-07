@@ -416,3 +416,25 @@ export const dataForWatchPage = {
     "resultsPerPage": 1
   }
 }
+
+export const ChannelStats = {
+  "kind": "youtube#channelListResponse",
+  "etag": "NWqBiXvkwJ5tHZaRGC97C945HqA",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 5
+  },
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "_WpCnLcL8-CKlCSoOuXtEh6AHt0",
+      "id": "UCk4j7JzNIFI2oX7WWZwfbTQ",
+      "statistics": {
+        "viewCount": "91368",
+        "subscriberCount": "2520",
+        "hiddenSubscriberCount": false,
+        "videoCount": "14"
+      }
+    }
+  ]
+}

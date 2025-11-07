@@ -3,7 +3,7 @@
 const VideoCard = ({data}) => {
 
 
- const {title, channelTitle, thumbnails} = data.snippet;
+ const {title, channelTitle, thumbnails, publishedAt} = data.snippet;
  const {viewCount} = data.statistics;
  const {url, width, height} = thumbnails.high;
  
@@ -20,7 +20,7 @@ const VideoCard = ({data}) => {
         <div className="card-body items-left">
           <h2 className="card-title">{title}</h2>
           <p>{channelTitle}</p>
-          <p>{viewCount} views  5 days ago</p>
+          <p>{viewCount} views  {publishedAt}</p>
         </div>
 
       </div>

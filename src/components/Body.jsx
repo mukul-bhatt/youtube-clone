@@ -1,16 +1,24 @@
-import Sidebar from "./Sidebar";
+import { useEffect } from "react";
 import VideoContainer from "./VideoContainer";
 import ButtonList from "./ButtonList";
+import { useDispatch } from "react-redux";
+import { openSidebar } from "../utils/sidebarSlice";
 
+const Body = () => {
 
-const Body = ({toggleSidebar, setToggleSidebar}) => {
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(openSidebar());
+    },[])   //why is it suggessting to use dispatch in the dependency array
+
     
     return (
         <>
             <div className="flex">
             
 
-            <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar}/>
+            
             <div>
                 <ButtonList />
                 <VideoContainer  />

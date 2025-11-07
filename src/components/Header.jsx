@@ -1,15 +1,91 @@
+import { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../utils/sidebarSlice";
+import { Link } from "react-router";
 
 const Header = () => {
 
   const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState("");
+  const [data, setData] = useState([]);
+  const popoverRef = useRef(null);
+  const myHashMap = useRef(new Map()) ;
+
+
+  useEffect(()=>{
+
+    const searchAPI = "https://suggestqueries-clients6.youtube.com/complete/search?client=youtube&q=" + inputValue;
+
+    if(inputValue === ""){
+      setData([]);
+      popoverRef.current?.hidePopover();
+      return;
+    } 
+
+    if(myHashMap.current.has(inputValue)){
+      setData(myHashMap.current.get(inputValue))
+      return;
+    }
+      
+    const timeout = setTimeout(()=>{
+        FetchSearchSuggestions(searchAPI);
+      }, 500)
+  
+
+    return ()=>{
+      clearTimeout(timeout);
+    }
+    },[inputValue])
+
+
+  const FetchSearchSuggestions = async (API) => {
+    const data = await fetch(API);
+    const text = await data.text();
+    
+    const suggestions = createArrayFromResponseString(text);
+    myHashMap.current.set(inputValue, suggestions);
+    setData(suggestions)
+
+    if(popoverRef.current){
+      popoverRef.current.showPopover();
+    }
+
+}
+
+  const createArrayFromResponseString = (responseString) => {
+// Step 1: Locate the start and end of the main data array
+// (It starts after the second comma and ends before the last comma)
+if(responseString === "") return;
+const start = responseString.indexOf('[', responseString.indexOf('[') + 1);
+const end = responseString.lastIndexOf(']', responseString.lastIndexOf(']') - 1);
+
+// Step 2: Extract the array string
+const arrayString = responseString.substring(start, end + 1);
+
+// Step 3: Parse the extracted string as JSON
+// Note: This relies on the internal array being valid JSON (which it usually is)
+try {
+    const dataArray = JSON.parse(arrayString);
+
+    // Step 4: Extract the suggestion strings
+    const suggestions = dataArray.map(item => item[0]);
+    console.log("suggestions",suggestions);
+    return suggestions;
+    // setData(suggestions);
+
+   
+
+} catch (error) {
+    console.error("Failed to parse the data:", error);
+}
+  }
+
 
 
   return (
-    <div className="navbar bg-base-100 shadow-sm flex justify-between">
-      <div className="navbar-start flex" onClick={()=>dispatch(toggleSidebar())}>
-        <button className="btn btn-square btn-ghost">
+    <div className="navbar bg-base-100 shadow-sm flex justify-between sticky top-0 z-10">
+      <div className="navbar-start flex" >
+        <button className="btn btn-square btn-ghost" onClick={()=>dispatch(toggleSidebar())}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -27,15 +103,18 @@ const Header = () => {
         </button>
 
         {/* <a className="btn btn-ghost text-xl">Youtube</a> */}
+        <Link to="/">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk7qtQGH84L4N30pBZI8Ox-Aq6zNzHuCEn3Q&s"
           alt="logo"
           width={"70px"}
         />
+        </Link>
       </div>
 
-      <div className="navbar-center">
-        <label className="input input-primary">
+
+      <div className="navbar-center" >
+        <label className="input input-primary" popoverTarget="popover-1" style={{ anchorName: "--anchor-1" }} >
           <svg
             className="h-[1em] opacity-50"
             xmlns="http://www.w3.org/2000/svg"
@@ -52,8 +131,21 @@ const Header = () => {
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input type="search" required placeholder="Search" />
+          {/* <input type="search" required placeholder="Search" onInput={debounce(handleInput, 300)}/> */}
+          <input className="block" type="search" required placeholder="Search" onInput={(e) => setInputValue(e.target.value)}/>
+          
         </label>
+
+
+
+    <ul ref={popoverRef} className="dropdown menu w-52 rounded-box bg-base-100 shadow-sm"
+      popover="auto" id="popover-1" style={{ positionAnchor: "--anchor-1" }} >
+
+        {data.map((item, index) => {
+          return  <li key={index}><a>{item}</a></li>
+        })}
+     
+    </ul> 
       </div>
 
       <div className="navbar-end">
@@ -94,3 +186,18 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
+
+//////////////////////////////////////////
+// Race condition implement using abortController
+// Study pop over api
+// js used to manipulate strings
+// study debouncing again ✅
+// implement caching
+// find a workaround against cors for autocomplete api
+// docs of fetch
+// this in js
+// debouncing implementation in react 
+// extract all suggestions logic into a useSuggestions hook

@@ -1,14 +1,19 @@
+
 import Header from "./Header"
-import Body from "./Body"
-import WatchPage from "./watchPage/WatchPage";
+import Sidebar from "./Sidebar"
+import { Outlet } from "react-router";
+
 
 const App = () => {
-
+   
     return (
         <div>
-            {/* <Header /> */}
-            {/* <Body/> */}
-            <WatchPage />
+            <Header />
+            <div className="flex">
+            <Sidebar/>
+            <Outlet />
+            </div>
+
         </div>
     )
 }
