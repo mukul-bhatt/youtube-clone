@@ -14,7 +14,7 @@ const Header = () => {
 
   useEffect(()=>{
 
-    const searchAPI = "https://suggestqueries-clients6.youtube.com/complete/search?client=youtube&q=" + inputValue;
+    const searchAPI = "http://localhost:3001/api/search-suggestions?q=" + inputValue;
 
     if(inputValue === ""){
       setData([]);
@@ -40,9 +40,9 @@ const Header = () => {
 
   const FetchSearchSuggestions = async (API) => {
     const data = await fetch(API);
-    const text = await data.text();
+    const json = await data.json();
     
-    const suggestions = createArrayFromResponseString(text);
+    const suggestions = json[1];
     myHashMap.current.set(inputValue, suggestions);
     setData(suggestions)
 
@@ -51,35 +51,6 @@ const Header = () => {
     }
 
 }
-
-  const createArrayFromResponseString = (responseString) => {
-// Step 1: Locate the start and end of the main data array
-// (It starts after the second comma and ends before the last comma)
-if(responseString === "") return;
-const start = responseString.indexOf('[', responseString.indexOf('[') + 1);
-const end = responseString.lastIndexOf(']', responseString.lastIndexOf(']') - 1);
-
-// Step 2: Extract the array string
-const arrayString = responseString.substring(start, end + 1);
-
-// Step 3: Parse the extracted string as JSON
-// Note: This relies on the internal array being valid JSON (which it usually is)
-try {
-    const dataArray = JSON.parse(arrayString);
-
-    // Step 4: Extract the suggestion strings
-    const suggestions = dataArray.map(item => item[0]);
-    console.log("suggestions",suggestions);
-    return suggestions;
-    // setData(suggestions);
-
-   
-
-} catch (error) {
-    console.error("Failed to parse the data:", error);
-}
-  }
-
 
 
   return (

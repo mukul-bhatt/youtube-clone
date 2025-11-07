@@ -2,7 +2,7 @@
 
 // export const YOUTUBE_VIDEOS_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=universe&type=video&videoDuration=medium&key=AIzaSyDV5n1LnD0gF6CzFo-R3RUGSXqCyEPdfKo";
 
-const YOUTUBE_API_KEY = "AIzaSyDV5n1LnD0gF6CzFo-R3RUGSXqCyEPdfKo";
+const YOUTUBE_API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY;
 
 export const YOUTUBE_VIDEOS_API = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=10&regionCode=IN&key=' + YOUTUBE_API_KEY;
 

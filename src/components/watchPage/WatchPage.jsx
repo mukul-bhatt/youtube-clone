@@ -215,15 +215,15 @@ const WatchPage = () => {
           height: "450",
           playerVars: {
             enablejsapi: 1,
-            // autoplay: 1,
-            cc_lang_pref: "hi",
-            cc_load_policy: 1,
+            autoplay: 1,
+            // cc_lang_pref: "hi",
+            // cc_load_policy: 1,
             color: "white",
             loop: 1
           },
           events: {
             'onReady': (event) => {
-              playerRef.current.mute()
+              // playerRef.current.mute()
               console.log('Player is ready', event.target)
             },
             'onStateChange': handleStateChange
@@ -267,6 +267,10 @@ const WatchPage = () => {
       {/* This div is the placeholder that the API replaces with the iframe */}
       <div ref={playerDivRef} id="player-container"></div>
       <VideoDetails videoId={id} />
+
+      <div>
+        <h1>This app is still under development. Please ignore any minor bugs, they will be improved in next versions</h1>
+      </div>
     </div>
   );
 };
