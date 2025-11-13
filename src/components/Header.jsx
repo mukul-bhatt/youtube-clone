@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar } from "../utils/sidebarSlice";
 import { Link } from "react-router";
+import { addItem } from "../utils/searchSlice";
 
 const Header = () => {
 
@@ -9,8 +10,8 @@ const Header = () => {
   const [inputValue, setInputValue] = useState("");
   const [data, setData] = useState([]);
   const popoverRef = useRef(null);
-  const myHashMap = useRef(new Map()) ;
-
+  const dataObj = useSelector(store => store.searchbar);
+  // console.log("DataoBj", dataObj)
 
   useEffect(()=>{
 
@@ -22,8 +23,11 @@ const Header = () => {
       return;
     } 
 
-    if(myHashMap.current.has(inputValue)){
-      setData(myHashMap.current.get(inputValue))
+    // Object.prototype.hasOwnProperty.call(dataObj, inputValue)
+
+    if(dataObj && dataObj[inputValue]){
+      console.log("check", dataObj);
+      setData(dataObj[inputValue])
       return;
     }
       
@@ -43,7 +47,8 @@ const Header = () => {
     const text = await data.text();
     
     const suggestions = createArrayFromResponseString(text);
-    myHashMap.current.set(inputValue, suggestions);
+    console.log("Dispatching payload:", { [inputValue]: suggestions });
+    dispatch(addItem({ [inputValue]: suggestions }))
     setData(suggestions)
 
     if(popoverRef.current){
