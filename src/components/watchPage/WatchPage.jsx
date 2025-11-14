@@ -189,6 +189,7 @@ import VideoDetails from './VideoDetails';
 import { useDispatch } from 'react-redux';
 import { closeSidebar } from '../../utils/sidebarSlice';
 import { useParams } from 'react-router';
+import Comments from './Comments';
 
 const WatchPage = () => {
   const playerRef = useRef(null); // Holds the YT.Player instance
@@ -267,6 +268,7 @@ const WatchPage = () => {
       {/* This div is the placeholder that the API replaces with the iframe */}
       <div ref={playerDivRef} id="player-container"></div>
       <VideoDetails videoId={id} />
+      <Comments />
     </div>
   );
 };
