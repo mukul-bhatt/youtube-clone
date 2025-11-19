@@ -15,7 +15,8 @@ const Header = () => {
 
   useEffect(()=>{
 
-    const searchAPI = "https://suggestqueries-clients6.youtube.com/complete/search?client=youtube&q=" + inputValue;
+    // const searchAPI = "https://suggestqueries-clients6.youtube.com/complete/search?client=youtube&q=" + inputValue;
+    const searchAPI = "https://suggestqueries.google.com/complete/search?client=youtube&q=" + inputValue;
 
     if(inputValue === ""){
       setData([]);
