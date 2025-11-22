@@ -1,4 +1,4 @@
-
+import { formatTimeAgo, formatViewCount } from "../utils/helpers";
 
 const VideoCard = ({data}) => {
 
@@ -18,9 +18,9 @@ const VideoCard = ({data}) => {
             className="rounded-xl" />
         </figure>
         <div className="card-body items-left">
-          <h2 className="card-title">{title}</h2>
+          <h3 className="card-title">{title}</h3>
           <p>{channelTitle}</p>
-          <p>{viewCount} views  {publishedAt}</p>
+          <p>{formatViewCount(viewCount)} views {formatTimeAgo(publishedAt)}</p>
         </div>
 
       </div>

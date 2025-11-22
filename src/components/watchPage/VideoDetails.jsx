@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { dataForWatchPage as data, ChannelStats as subscriberData} from "../../utils/mockData";
-
+import { formatViewCount } from "../../utils/helpers";
 
 const VideoDetails = ({videoId}) => {
 
@@ -56,7 +56,8 @@ const VideoDetails = ({videoId}) => {
 
           <div className="mr-6">
             <h3 className="prose prose-lg">{channelTitle}</h3>
-            <p className="prose prose-sm">{subscriberCount} subscribers</p>
+            <p className="prose prose-sm">{formatViewCount(subscriberCount)} subscribers</p>
+
           </div>
 
           <button className="btn btn-soft rounded-3xl">Subscribe</button>
